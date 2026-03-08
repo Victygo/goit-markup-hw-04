@@ -120,6 +120,29 @@ img {
 
 /* #endregion */
 
+/* #region Socials */
+.socials-list {
+    display: flex;
+    gap: 24px;
+}
+.social-media-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #4d5ae5;
+}
+
+.socials-icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+/* #endregion */
+
 /* #region Button */
 
 
@@ -130,11 +153,13 @@ button {
     border: 1px solid transparent;
     background-color: transparent;
     cursor: pointer;
+
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 button:hover,
 button:focus {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-    background: #404bbf;
+    background-color: #404bbf;
 }
 
 /* #endregion */
@@ -166,8 +191,22 @@ button:focus {
 .nav-item {}
 
 .nav-link {
+    position: relative;
     display: block;
     padding: 24px 0;
+}
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 4px;
+
+    background-color: #404bbf;
+    border-radius: 2px;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
@@ -195,16 +234,16 @@ button:focus {
     display: flex;
     align-items: center;
   
-
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 .contacts-link:hover,
 .contacts-link:focus {
-    line-height: 1.5;
-    letter-spacing: 0.02em;
     color: #404bbf;
 }
 
@@ -214,7 +253,14 @@ button:focus {
 .main {}
 
 .hero {
+    max-width: 1440px;
+    margin: 0 auto;
+
     background-color: #2e2f42;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/people-office.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 188px 0;
 
     
@@ -267,6 +313,16 @@ button:focus {
     width: calc((100% - 24px * 3) / 4);
 }
 
+.features-wrapper {
+    width: 264px;
+    height: 112px;
+    padding: 24px 100px;
+    margin-bottom: 8px;
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+    background-color: #f4f4fd;
+}
+
 .features-title {
     margin-bottom: 8px;
     font-weight: 500;
@@ -309,6 +365,7 @@ button:focus {
     width: calc((100% - 24px * 3) / 4);
 
     background: #fff;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
     border-radius: 0 0 4px 4px;
 }
     
@@ -336,6 +393,7 @@ button:focus {
     letter-spacing: 0.02em;
     line-height: 1.5;
     text-align: center;
+    margin-bottom: 8px;
     color: #434455;
 
 }
@@ -360,7 +418,32 @@ button:focus {
 .portfolio-list-item {
     background-color: #fff;
 
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+
     width: calc((100% - 24px * 2) / 3);
+}
+
+.portfolio-thumb {
+    position: relative;
+    overflow: hidden;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px;
+    color: #f4f4fd;
+    background-color: #4d5ae5;
+
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-list-item:hover .overlay,
+.portfolio-list-item:focus .overlay {
+    transform: translateY(0);
 }
 
 .portfolio-wrapper {
@@ -373,7 +456,6 @@ button:focus {
 
 .ourportfolio-caption {
     line-height: 1.5;
-    letter-spacing: 0.02em;
     color: #434455;
 }
 
@@ -404,10 +486,31 @@ button:focus {
     max-width: 264px;
 }
 .footer-caption {
+    font-weight: 500;
     line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #f4f4fd;
+    color: #fff;
 }
+.footer-wrapper {
+    display: flex;
+    gap: 120px;
+}
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.footer-socials-title {
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff;
+}
+.footer-socials-list {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+
 
 /* #endregion */
 
